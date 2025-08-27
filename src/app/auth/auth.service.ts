@@ -27,7 +27,8 @@ export class AuthService {
     if (exists) {
       return false;
     }
-
+    
+    user.password = btoa(user.password)
     users.push(user);
     this.saveUsers(users);
     localStorage.setItem(this.sessionKey, JSON.stringify(user));
@@ -36,7 +37,7 @@ export class AuthService {
 
   login(email: string, password: string): boolean {
     const users = this.getUsers();
-    const user = users.find(u => u.email === email && u.password === password);
+    const user = users.find(u => u.email === email && u.password === btoa(password));
 
     if (user) {
       localStorage.setItem(this.sessionKey, JSON.stringify(user));

@@ -15,11 +15,12 @@
         <mat-label>Contraseña</mat-label>
         <input matInput type="password" formControlName="password" appPasswordStrength
             (input)="onInputPassword($event.target.value)" />
+        <mat-hint *ngIf="passwordStrength" [style.color]="passwordStrengthColor">Fortaleza: {{ passwordStrength }}</mat-hint>
 
     </mat-form-field>
-    <div *ngIf="form.get('password')?.value" [style.color]="passwordStrengthColor">
-        Fortaleza: {{ passwordStrength }}
-    </div>
+    <!-- <div *ngIf="form.get('password')?.value" >
+        
+    </div> -->
 
 
 

@@ -34,10 +34,11 @@ export class ProfileComponent implements OnInit {
   private snackBar = inject(MatSnackBar);
   passwordStrength = '';
   passwordStrengthColor = '';
+  deshabilitado = true
 
   form = this.fb.group({
     name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
+    email: [{ value: '', disabled: true }, [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
 
   });
@@ -71,6 +72,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.snackBar.open('Sesión cerrada con exito', 'Cerrar', { duration: 3000});
+    this.snackBar.open('Sesión cerrada con exito', 'Cerrar', { duration: 3000 });
   }
 }
