@@ -2,12 +2,12 @@
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <h1>Iniciá sesión</h1>
-  <mat-form-field appearance="fill" class="full-width">
+  <mat-form-field appearance="fill" class="container">
     <mat-label>Email</mat-label>
     <input matInput formControlName="email" type="email" />
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="full-width">
+  <mat-form-field appearance="fill" class="container">
     <mat-label>Contraseña</mat-label>
     <input matInput formControlName="password" type="password" />
   </mat-form-field>
