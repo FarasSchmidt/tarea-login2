@@ -27,12 +27,27 @@ export class AuthService {
     if (exists) {
       return false;
     }
-    
+
     user.password = btoa(user.password)
     users.push(user);
     this.saveUsers(users);
     localStorage.setItem(this.sessionKey, JSON.stringify(user));
     return true;
+  }
+
+  update(user: User): boolean {
+    let users = this.getUsers();
+
+    const exists = users.some(u => u.email === user.email);
+    if (exists) {
+      user.password = btoa(user.password)
+      users = users.filter(u => u.email !== user.email)
+      users.push(user);
+      this.saveUsers(users);
+      localStorage.setItem(this.sessionKey, JSON.stringify(user));
+      return true;
+    }
+    return false;
   }
 
   login(email: string, password: string): boolean {

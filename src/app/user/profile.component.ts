@@ -54,7 +54,7 @@ export class ProfileComponent implements OnInit {
 
   onSave(): void {
     if (this.form.valid) {
-      this.auth.register(this.form.value as User);
+      this.auth.update(this.form.getRawValue() as User);
       this.snackBar.open('Datos actualizados', 'Cerrar', { duration: 3000 });
     }
   }
