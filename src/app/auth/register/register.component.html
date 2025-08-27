@@ -1,17 +1,17 @@
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <h1>Registrate</h1>
-    <mat-form-field appearance="fill" class="full-width">
+    <mat-form-field appearance="fill" class="container">
         <mat-label>Nombre</mat-label>
         <input matInput formControlName="name" />
     </mat-form-field>
 
-    <mat-form-field appearance="fill" class="full-width">
+    <mat-form-field appearance="fill" class="container">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" />
     </mat-form-field>
 
-    <mat-form-field appearance="fill" class="full-width">
+    <mat-form-field appearance="fill" class="container">
         <mat-label>Contraseña</mat-label>
         <input matInput type="password" formControlName="password" appPasswordStrength
             (input)="onInputPassword($event.target.value)" />

@@ -66,7 +66,11 @@ export class ProfileComponent implements OnInit {
 
   logout(): void {
     this.auth.logout();
-    this.snackBar.open('Sesión cerrada', 'Cerrar', { duration: 3000 });
+    //this.snackBar.open('Sesión cerrada', 'Cerrar', { duration: 3000 });
     this.router.navigate(['/login']);
+  }
+
+  ngOnDestroy(): void {
+    this.snackBar.open('Sesión cerrada con exito', 'Cerrar', { duration: 3000});
   }
 }
